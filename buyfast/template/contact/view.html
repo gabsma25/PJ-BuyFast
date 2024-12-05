@@ -1,20 +1,22 @@
 {% extends "base.html" %}
 
-{% block content %} 
+{% block content %}
+
+{% include 'base/navbar.html' %}
 <div class='text-center'>
-    <h1>{{ title }}</h1>
-</div>
-<div class='container'>
-    <div class='row'>
-        <div class='col'>
-            <p>{{ content }}</p>
-            <div class='col-sm-6 col-12'>
-                <form method='POST'> {% csrf_token %}
-                    {{ form }}
-                    <button type='submit' class='btn btn-default'>Enviar</button>
-                </form>
+        <h1>{{ title }}</h1>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col'>
+                <p>{{ content }}</p>
+                <div class='col-sm-6 col-12'>
+                    <form method='POST'> {% csrf_token %}
+                        {{ form }}
+                        <button type='submit' class='btn btn-default'>Enviar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div> 
 {% endblock %}
