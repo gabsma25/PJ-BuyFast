@@ -1,9 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {{ object.title }} 
-    {{ object.description|linebreaks }} 
+<div class="container py-5">
+    <!-- Título do Produto -->
+    <h1 class="display-5 text-center">{{ object.title }}</h1>
+
+    <!-- Descrição do Produto -->
+    <p class="text-muted text-center">{{ object.description|linebreaks }}</p>
+
+    <!-- Imagem do Produto -->
     {% if object.image %}
-        <img src='{{ object.image.url }}' class='img-fluid'; width = 300px />
+    <div class="text-center mb-4">
+        <img src="{{ object.image.url }}" class="img-fluid rounded" alt="{{ object.title }}" width="300px" />
+    </div>
     {% endif %}
+
+    <!-- Informativo de Preço -->
+    <div class="text-center">
+        {% if object.price %}
+        <h3 class="text-success">Preço: R$ {{ object.price }}</h3>
+        {% else %}
+        <h3 class="text-danger">Preço indisponível</h3>
+        {% endif %}
+    </div>
+
+    <!-- Botão de Compra (Opcional) -->
+    <div class="text-center mt-4">
+        <a href="#" class="btn btn-primary btn-lg">Comprar Agora</a>
+    </div>
+</div>
 {% endblock content %}
