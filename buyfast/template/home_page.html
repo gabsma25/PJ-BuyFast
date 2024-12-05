@@ -1,41 +1,28 @@
+{% extends "base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-</head>
-<body>
-    <h1>Bem-vindo ao sistema BuyFast</h1>
-    <img src="{% static 'img/eCommerce.jpeg' %}" alt="Loja Virtual">
-    
-</body>
-</html>
-    
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Home Page Template</title>
+{% block content %}
+    <div class='text-center'>
+        <h1>{{ title }}</h1>
+             <p>{{ content }}</p>
+    </div>
+    <div class='container'>
+	<div class='row'>
+	    <div class='col'>
+		<img src="{% static 'img/eCommerce.jpeg' %}" class='img-fluid' />
+		<p>{{ content }}</p>
+	    </div>
+	</div>
 
-        <title> Ecommerce!</title>
-    </head>
-    <body class='text-center'>
-        <div>
-            <h1>{{ title }}</h1>
-            <h2>{{ content }}</h2>
-        </div>
-        <div class='container'>
-            {% if request.user.is_authenticated %}
-            <div class='row'>
-                <div class='col'>
-                    <h1>Premium</h1>
-                    <p>{{ premium_content }}</p>
-                </div>
-            </div>
-            {% endif %}
-            
-    </body>
-</html>
+	{% if request.user.is_authenticated %}
+	    <div class='row'>
+		<div class='col'>
+		    <h1>Premium</h1>
+			<p>{{ premium_content }}</p>
+		</div>
+	    </div>
+	{% endif %}
+    </div>
+{% endblock %}
