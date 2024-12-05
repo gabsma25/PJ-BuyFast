@@ -1,6 +1,9 @@
-{%extands "base.html"%}
-{% for obj in object_list %}
+{% extands "base.html"%}
 
-<a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a><br/>
-    {% include "products\snippets\card.html" with instance = obj%}
-{% endfor%}
+{% block content%}
+    {% for obj in object_list %}
+
+    <a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a><br/>
+        {% include "products\snippets\card.html" with instance = obj%}
+    {% endfor%}
+{% endblock content%}
