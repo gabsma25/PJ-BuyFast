@@ -1,5 +1,19 @@
-<form method='POST'> 
-    {% csrf_token %}
-    {{ form }}
-    <button type='submit' class='btn btn-default'>Enviar</button>
-</form>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Login</h1>
+    <p class="text-center">Bem-vindo(a)! Faça login para acessar sua conta.</p>
+    
+    <form method="POST" class="mt-4"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+    </form>
+
+    <p class="text-center mt-3">
+        Não tem uma conta? <a href="{% url 'register' %}">Cadastre-se aqui</a>.
+    </p>
+</div>
+{% endblock %}

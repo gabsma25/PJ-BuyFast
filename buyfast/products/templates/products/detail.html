@@ -2,8 +2,8 @@
 
 {% block content %}
     {{ object.title }} 
-    {{ object.description }} 
+    {{ object.description|linebreaks }} 
     {% if object.image %}
-        <img src='{{ object.image.url }}' class='img-fluid'/>
+        <img src='{{ object.image.url }}' class='img-fluid'; width = 300px />
     {% endif %}
 {% endblock content %}
